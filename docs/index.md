@@ -45,7 +45,9 @@ to make web applications and APIs more enjoyable to write. Koa's middleware flow
 Only methods that are common to nearly all HTTP servers are integrated directly into Koa's small ~550 SLOC codebase. This
 includes things like content-negotiation, normalization of node inconsistencies, redirection, and a few others.
 
-No middleware are bundled with koa.
+* Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling
+* No middleware are bundled with koa, small, flexible
+* Stack-like middleware architecture, which is more expressive
 
 
 ### Authors
