@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/Middleware/guide/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Guide - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../basics/promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href=".">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Misc/error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../../API/response">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../hero">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#guide">Guide</a></li>
+        
+            <li><a href="#writing-middleware">Writing Middleware</a></li>
+        
+            <li><a href="#middleware-best-practices">Middleware Best Practices</a></li>
+        
+            <li><a href="#async-operations">Async operations</a></li>
+        
+            <li><a href="#debugging-koa">Debugging Koa</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="guide">Guide</h1>
+<p>This guide covers Koa topics are not directly API related, such as best practices for writing middleware,
+  application structure suggestions.</p>
+<h2 id="writing-middleware">Writing Middleware</h2>
+<p>Koa middleware are simple functions which return a <code>GeneratorFunction</code>, and accept another. When
+  the middleware is run by an "upstream" middleware, it must manually <code>yield</code> to the "downstream" middleware.</p>
+<p>For example if you wanted to track how long it takes for a request to propagate through Koa by adding an
+  <code>X-Response-Time</code> header field the middleware would look like the following:</p>
+<pre><code class="js">function *responseTime(next) {
+  var start = new Date;
+  yield next;
+  var ms = new Date - start;
+  this.set('X-Response-Time', ms + 'ms');
+}
+
+app.use(responseTime);
+</code></pre>
+
+<p>Here's another way to write the same thing, inline:</p>
+<pre><code class="js">app.use(function *(next){
+  var start = new Date;
+  yield next;
+  var ms = new Date - start;
+  this.set('X-Response-Time', ms + 'ms');
+});
+</code></pre>
+
+<p>If you're a front-end developer you can think any code before <code>yield next;</code> as the "capture" phase,
+  while any code after is the "bubble" phase. This crude gif illustrates how ES6 generators allow us
+  to properly utilize stack flow to implement request and response flows:</p>
+<p><img alt="koa middleware" src="https://raw.githubusercontent.com/koajs/koa/master/docs/middleware.gif" /></p>
+<ol>
+<li>Create a date to track duration</li>
+<li>Yield control to the next middleware</li>
+<li>Create another date to track response time</li>
+<li>Yield control to the next middleware</li>
+<li>Yield immediately since <code>contentLength</code> only works with responses</li>
+<li>Yield upstream to Koa's noop middleware</li>
+<li>Ignore setting the body unless the path is "/"</li>
+<li>Set the response to "Hello World"</li>
+<li>Ignore setting <code>Content-Length</code> when no body is present</li>
+<li>Set the field</li>
+<li>Output log line</li>
+<li>Set <code>X-Response-Time</code> header field before response</li>
+<li>Hand off to Koa to handle the response</li>
+</ol>
+<p>Note that the final middleware (step <strong>6</strong>) yields to what looks to be nothing - it's actually
+yielding to a no-op generator within Koa. This is so that every middleware can conform with the
+same API, and may be placed before or after others. If you removed <code>yield next;</code> from the furthest
+"downstream" middleware everything would function appropritaely, however it would no longer conform
+to this behaviour.</p>
+<p>For example this would be fine:</p>
+<pre><code class="js">app.use(function *response(){
+  if ('/' != this.url) return;
+  this.body = 'Hello World';
+});
+</code></pre>
+
+<p>Next we'll look at the best practices for creating Koa middleware.</p>
+<h2 id="middleware-best-practices">Middleware Best Practices</h2>
+<p>This section covers middleware authoring best practices, such as middleware
+  accepting options, named middleware for debugging, among others.</p>
+<h3 id="middleware-options">Middleware options</h3>
+<p>When creating public middleware it's useful to conform to the convention of
+  wrapping the middleware in a function that accepts options, allowing users to
+  extend functionality. Even if your middleware accepts <em>no</em> options, this is still
+  a good idea to keep things uniform.</p>
+<p>Here our contrived <code>logger</code> middleware accepts a <code>format</code> string for customization,
+  and returns the middleware itself:</p>
+<pre><code class="js">function logger(format) {
+  format = format || ':method &quot;:url&quot;';
+
+  return function *(next){
+    var str = format
+      .replace(':method', this.method)
+      .replace(':url', this.url);
+
+    console.log(str);
+
+    yield next;
+  }
+}
+
+app.use(logger());
+app.use(logger(':method :url'));
+</code></pre>
+
+<h3 id="named-middleware">Named middleware</h3>
+<p>Naming middleware is optional, however it's useful for debugging purposes to assign a name.</p>
+<pre><code class="js">function logger(format) {
+  return function *logger(next){
+
+  }
+}
+</code></pre>
+
+<h3 id="combining-multiple-middleware">Combining multiple middleware</h3>
+<p>Sometimes you want to "compose" multiple middleware into a single middleware for easy re-use or exporting. To do so, you may chain them together with <code>.call(this, next)</code>s, then return another function that yields the chain.</p>
+<pre><code class="js">function *random(next) {
+  if ('/random' == this.path) {
+    this.body = Math.floor(Math.random()*10);
+  } else {
+    yield next;
+  }
+};
+
+function *backwards(next) {
+  if ('/backwards' == this.path) {
+    this.body = 'sdrawkcab';
+  } else {
+    yield next;
+  }
+}
+
+function *pi(next) {
+  if ('/pi' == this.path) {
+    this.body = String(Math.PI);
+  } else {
+    yield next;
+  }
+}
+
+function *all(next) {
+  yield random.call(this, backwards.call(this, pi.call(this, next)));
+}
+
+app.use(all);
+</code></pre>
+
+<p>This is exactly what <a href="https://github.com/koajs/compose">koa-compose</a> does, which Koa internally uses to create and dispatch the middleware stack.</p>
+<h3 id="response-middleware">Response Middleware</h3>
+<p>Middleware that decide to respond to a request and wish to bypass downstream middleware may
+  simply omit <code>yield next</code>. Typically this will be in routing middleware, but this can be performed by
+  any. For example the following will respond with "two", however all three are executed, giving the
+  downstream "three" middleware a chance to manipulate the response.</p>
+<pre><code class="js">app.use(function *(next){
+  console.log('&gt;&gt; one');
+  yield next;
+  console.log('&lt;&lt; one');
+});
+
+app.use(function *(next){
+  console.log('&gt;&gt; two');
+  this.body = 'two';
+  yield next;
+  console.log('&lt;&lt; two');
+});
+
+app.use(function *(next){
+  console.log('&gt;&gt; three');
+  yield next;
+  console.log('&lt;&lt; three');
+});
+</code></pre>
+
+<p>The following configuration omits <code>yield next</code> in the second middleware, and will still respond
+  with "two", however the third (and any other downstream middleware) will be ignored:</p>
+<pre><code class="js">app.use(function *(next){
+  console.log('&gt;&gt; one');
+  yield next;
+  console.log('&lt;&lt; one');
+});
+
+app.use(function *(next){
+  console.log('&gt;&gt; two');
+  this.body = 'two';
+  console.log('&lt;&lt; two');
+});
+
+app.use(function *(next){
+  console.log('&gt;&gt; three');
+  yield next;
+  console.log('&lt;&lt; three');
+});
+</code></pre>
+
+<p>When the furthest downstream middleware executes <code>yield next;</code> it's really yielding to a noop
+  function, allowing the middleware to compose correctly anywhere in the stack.</p>
+<h2 id="async-operations">Async operations</h2>
+<p>The <a href="https://github.com/visionmedia/co">Co</a> forms Koa's foundation for generator delegation, allowing
+  you to write non-blocking sequential code. For example this middleware reads the filenames from <code>./docs</code>,
+  and then reads the contents of each markdown file in parallel before assigning the body to the joint result.</p>
+<pre><code class="js">var fs = require('co-fs');
+
+app.use(function *(){
+  var paths = yield fs.readdir('docs');
+
+  var files = yield paths.map(function(path){
+    return fs.readFile('docs/' + path, 'utf8');
+  });
+
+  this.type = 'markdown';
+  this.body = files.join('');
+});
+</code></pre>
+
+<h2 id="debugging-koa">Debugging Koa</h2>
+<p>Koa along with many of the libraries it's built with support the <strong>DEBUG</strong> environment variable from <a href="https://github.com/visionmedia/debug">debug</a> which provides simple conditional logging.</p>
+<p>For example
+  to see all koa-specific debugging information just pass <code>DEBUG=koa*</code> and upon boot you'll see the list of middleware used, among other things.</p>
+<pre><code>$ DEBUG=koa* node --harmony examples/simple
+  koa:application use responseTime +0ms
+  koa:application use logger +4ms
+  koa:application use contentLength +0ms
+  koa:application use notfound +0ms
+  koa:application use response +0ms
+  koa:application listen +0ms
+</code></pre>
+
+<p>Since JavaScript does not allow defining function names at
+  runtime, you can also set a middleware's name as <code>._name</code>.
+  This useful when you don't have control of a middleware's name.
+  For example:</p>
+<pre><code class="js">var path = require('path');
+var static = require('koa-static');
+
+var publicFiles = static(path.join(__dirname, 'public'));
+publicFiles._name = 'static /public';
+
+app.use(publicFiles);
+</code></pre>
+
+<p>Now, instead of just seeing "static" when debugging, you will see:</p>
+<pre><code>  koa:application use static /public +0ms
+</code></pre>
+
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

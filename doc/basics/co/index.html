@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/basics/co/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Co - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../generator">Generator</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href=".">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Misc/error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../generator">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../API/application">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#co">Co</a></li>
+        
+    
+        <li class="main "><a href="#platform-compatibility">Platform Compatibility</a></li>
+        
+    
+        <li class="main "><a href="#installation">Installation</a></li>
+        
+    
+        <li class="main "><a href="#associated-libraries">Associated libraries</a></li>
+        
+    
+        <li class="main "><a href="#examples">Examples</a></li>
+        
+    
+        <li class="main "><a href="#yieldables">Yieldables</a></li>
+        
+            <li><a href="#promises">Promises</a></li>
+        
+            <li><a href="#thunks">Thunks</a></li>
+        
+            <li><a href="#arrays">Arrays</a></li>
+        
+            <li><a href="#objects">Objects</a></li>
+        
+            <li><a href="#generators-and-generator-functions">Generators and Generator Functions</a></li>
+        
+    
+        <li class="main "><a href="#api">API</a></li>
+        
+            <li><a href="#cofnthen-val">co(fn*).then( val =&gt; )</a></li>
+        
+            <li><a href="#var-fn-cowrapfn">var fn = co.wrap(fn*)</a></li>
+        
+    
+        <li class="main "><a href="#license">License</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="co">Co</h2>
+<p>Generator based control flow goodness for nodejs and the browser,
+    using promises, letting you write non-blocking code in a nice-ish way.</p>
+<p><code>co@4.0.0</code> has been released, which now relies on promises.
+  It is a stepping stone towards <a href="https://github.com/lukehoban/ecmascript-asyncawait">ES7 async/await</a>.
+  The primary API change is how <code>co()</code> is invoked.
+  Before, <code>co</code> returned a "thunk", which you then called with a callback and optional arguments.
+  Now, <code>co()</code> returns a promise.</p>
+<pre><code class="js">co(function* () {
+  var result = yield Promise.resolve(true);
+  return result;
+}).then(function (value) {
+  console.log(value);
+}, function (err) {
+  console.error(err.stack);
+});
+</code></pre>
+
+<p>If you want to convert a <code>co</code>-generator-function into a regular function that returns a promise,
+  you now use <code>co.wrap(fn*)</code>.</p>
+<pre><code class="js">var fn = co.wrap(function* (val) {
+  return yield Promise.resolve(val);
+});
+
+fn(true).then(function (val) {
+
+});
+</code></pre>
+
+<h2 id="platform-compatibility">Platform Compatibility</h2>
+<p><code>co@4+</code> requires a <code>Promise</code> implementation.
+  For versions of node <code>&lt; 0.11</code> and for many older browsers,
+  you should/must include your own <code>Promise</code> polyfill.</p>
+<p>When using node 0.11.x or greater, you must use the <code>--harmony-generators</code>
+  flag or just <code>--harmony</code> to get access to generators.</p>
+<p>When using node 0.10.x and lower or browsers without generator support,
+  you must use <a href="https://github.com/TooTallNate/gnode">gnode</a> and/or <a href="http://facebook.github.io/regenerator/">regenerator</a>.</p>
+<p>io.js is supported out of the box, you can use <code>co</code> without flags or polyfills.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>$ npm install co
+</code></pre>
+
+<h2 id="associated-libraries">Associated libraries</h2>
+<p>Any library that returns promises work well with <code>co</code>.</p>
+<ul>
+<li><a href="https://github.com/normalize/mz">mz</a> - wrap all of node's code libraries as promises.</li>
+</ul>
+<p>View the <a href="https://github.com/visionmedia/co/wiki">wiki</a> for more co compatible libraries.</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="js">var co = require('co');
+
+co(function *(){
+  // yield any promise
+  var result = yield Promise.resolve(true);
+}).catch(onerror);
+
+co(function *(){
+  // resolve multiple promises in parallel
+  var a = Promise.resolve(1);
+  var b = Promise.resolve(2);
+  var c = Promise.resolve(3);
+  var res = yield [a, b, c];
+  console.log(res);
+  // =&gt; [1, 2, 3]
+}).catch(onerror);
+
+// errors can be try/catched
+co(function *(){
+  try {
+    yield Promise.reject(new Error('boom'));
+  } catch (err) {
+    console.error(err.message); // &quot;boom&quot;
+ }
+}).catch(onerror);
+
+function onerror(err) {
+  // log any uncaught errors
+  // co will not throw any errors you do not handle!!!
+  // HANDLE ALL YOUR ERRORS!!!
+  console.error(err.stack);
+}
+</code></pre>
+
+<h2 id="yieldables">Yieldables</h2>
+<p>The <code>yieldable</code> objects currently supported are:</p>
+<ul>
+<li>promises</li>
+<li>thunks (functions)</li>
+<li>array (parallel execution)</li>
+<li>objects (parallel execution)</li>
+<li>generators (delegation)</li>
+<li>generator functions (delegation)</li>
+</ul>
+<p>Nested <code>yieldable</code> objects are supported, meaning you can nest
+promises within objects within arrays, and so on!</p>
+<h3 id="promises">Promises</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Read more on promises!</a></p>
+<h3 id="thunks">Thunks</h3>
+<p>Thunks are functions that only have a single argument, a callback.
+Thunk support only remains for backwards compatibility and may
+be removed in future versions of <code>co</code>.</p>
+<h3 id="arrays">Arrays</h3>
+<p><code>yield</code>ing an array will resolve all the <code>yieldables</code> in parallel.</p>
+<pre><code class="js">co(function* () {
+  var res = yield [
+    Promise.resolve(1),
+    Promise.resolve(2),
+    Promise.resolve(3),
+  ];
+  console.log(res); // =&gt; [1, 2, 3]
+}).catch(onerror);
+</code></pre>
+
+<h3 id="objects">Objects</h3>
+<p>Just like arrays, objects resolve all <code>yieldable</code>s in parallel.</p>
+<pre><code class="js">co(function* () {
+  var res = yield {
+    1: Promise.resolve(1),
+    2: Promise.resolve(2),
+  };
+  console.log(res); // =&gt; { 1: 1, 2: 2 }
+}).catch(onerror);
+</code></pre>
+
+<h3 id="generators-and-generator-functions">Generators and Generator Functions</h3>
+<p>Any generator or generator function you can pass into <code>co</code>
+can be yielded as well. This should generally be avoided
+as we should be moving towards spec-compliant <code>Promise</code>s instead.</p>
+<h2 id="api">API</h2>
+<h3 id="cofnthen-val">co(fn*).then( val =&gt; )</h3>
+<p>Returns a promise that resolves a generator, generator function,
+or any function that returns a generator.</p>
+<pre><code class="js">co(function* () {
+  return yield Promise.resolve(true);
+}).then(function (val) {
+  console.log(val);
+}, function (err) {
+  console.error(err.stack);
+});
+</code></pre>
+
+<h3 id="var-fn-cowrapfn">var fn = co.wrap(fn*)</h3>
+<p>Convert a generator into a regular function that returns a <code>Promise</code>.</p>
+<pre><code class="js">var fn = co.wrap(function* (val) {
+  return yield Promise.resolve(val);
+});
+
+fn(true).then(function (val) {
+
+});
+</code></pre>
+
+<h2 id="license">License</h2>
+<p>MIT</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

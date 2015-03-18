@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/basics/generator/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Generator - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../promise">Promise</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href=".">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Misc/error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../promise">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../co">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#generator">Generator</a></li>
+        
+    
+        <li class="main "><a href="#generator-based-control-flow-lib">Generator-based control-flow lib</a></li>
+        
+    
+        <li class="main "><a href="#resource">Resource</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="generator">Generator</h2>
+<p>Generator is also a ES2015 new feature, which designed to create iterator to use with for of. With the new import keyword yield user can realise halt and resume effect. With this feature we can use it to write async code</p>
+<h2 id="generator-based-control-flow-lib">Generator-based control-flow lib</h2>
+<ul>
+<li><a href="http://taskjs.org/">taskjs</a></li>
+<li><a href="https://github.com/tj/co">co</a></li>
+<li><a href="https://github.com/jmar777/suspend">suspend</a></li>
+</ul>
+<h2 id="resource">Resource</h2>
+<ul>
+<li><a href="http://davidwalsh.name/es6-generators">ES6 Generators: Complete Series</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*">Mozila doc</a></li>
+<li><a href="http://devsmash.com/blog/whats-the-big-deal-with-generators">What's the Big Deal with Generators?</a></li>
+<li><a href="http://tobyho.com/2013/06/16/what-are-generators/">What Is This Thing Called Generators?</a></li>
+<li><a href="http://modernweb.com/2014/02/10/replacing-callbacks-with-es6-generators/">Replacing callbacks with ES6 Generators</a></li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

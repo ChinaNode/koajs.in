@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/Middleware/middlewares/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Middleware List - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../basics/promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../hero">Hero</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href=".">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Misc/error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../hero">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../Misc/error">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#frameworks">Frameworks</a></li>
+        
+    
+        <li class="main "><a href="#middleware">Middleware</a></li>
+        
+            <li><a href="#security">Security</a></li>
+        
+            <li><a href="#body-parsing">Body Parsing</a></li>
+        
+            <li><a href="#parameter-validation">Parameter Validation</a></li>
+        
+            <li><a href="#rate-limiting">Rate Limiting</a></li>
+        
+            <li><a href="#vhost">Vhost</a></li>
+        
+            <li><a href="#routing-and-mounting">Routing and Mounting</a></li>
+        
+            <li><a href="#file-serving">File Serving</a></li>
+        
+            <li><a href="#spdy">SPDY</a></li>
+        
+            <li><a href="#json-and-jsonp-responses">JSON and JSONP Responses</a></li>
+        
+            <li><a href="#compression">Compression</a></li>
+        
+            <li><a href="#caching">Caching</a></li>
+        
+            <li><a href="#authentication">Authentication</a></li>
+        
+            <li><a href="#sessions">Sessions</a></li>
+        
+            <li><a href="#templating">Templating</a></li>
+        
+            <li><a href="#services">Services</a></li>
+        
+            <li><a href="#css-preprocessor">CSS Preprocessor</a></li>
+        
+            <li><a href="#livereload">Livereload</a></li>
+        
+            <li><a href="#error-reporting">Error reporting</a></li>
+        
+            <li><a href="#logging">Logging</a></li>
+        
+            <li><a href="#metrics">Metrics</a></li>
+        
+            <li><a href="#analytics">Analytics</a></li>
+        
+            <li><a href="#i18n-or-l10n">i18n or L10n</a></li>
+        
+    
+        <li class="main "><a href="#utilities">Utilities</a></li>
+        
+            <li><a href="#aggregates">Aggregates</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="frameworks">Frameworks</h2>
+<p>Frameworks, boilerplates, and other starter kits using Koa.</p>
+<ul>
+<li><a href="https://github.com/koajs/api-boilerplate">api-boilerplate</a> - an API application boilerplate</li>
+<li><a href="https://github.com/koajs/koala">koala</a> - a more feature-rich version of Koa, including many middleware and utilities</li>
+<li><a href="https://github.com/soygul/koan">koan</a> - Full stack JavaScript Web development boilerplate with Koa and Angular.</li>
+<li><a href="https://github.com/component/boilerplate-koa">component-boilerplate-koa</a> - component + koa boilerplate</li>
+<li><a href="https://github.com/Empeeric/opinion">opinion</a> - Koa, and some modules so you can just start building</li>
+<li><a href="https://github.com/gusnips/node-koa-mvc">koa-mvc</a> - Opinionated and minimalist MVC generator</li>
+<li><a href="https://github.com/zedgu/surface">surface</a> - A tiny middleware of RESTful API for koa</li>
+<li><a href="https://github.com/zillow-oc/Koanect">koanect</a> - A bare minimum framework that allows your web app to run standalone or to be packaged and included in other koanect apps.</li>
+<li><a href="http://github.com/lapwinglabs/roo">roo</a> – jump-start your web app with a thin layer on top of koa to reduce initial boilerplate</li>
+<li><a href="https://github.com/colin-jack/resourced">resourced</a> - A resource-oriented DSL for configuring koa.</li>
+<li><a href="https://github.com/jbielick/kona">kona</a> - a modular MVC framework and middleware stack built on koa</li>
+</ul>
+<h2 id="middleware">Middleware</h2>
+<p>Known middleware for Koa, you may want to search npm with "koa" to find more.</p>
+<ul>
+<li><a href="https://github.com/simov/grant">grant</a> - OAuth middleware</li>
+<li><a href="https://github.com/evert0n/koa-cors">cors</a> - CORS middleware</li>
+<li><a href="https://github.com/bahmutov/koa-slow">koa-slow</a> - delay answering requests by URL RegExp, useful for debugging.</li>
+<li><a href="https://github.com/dotcypress/koa-force-ssl">koa-force-ssl</a> - Middleware for force SSL</li>
+<li><a href="https://github.com/koajs/cluster">cluster</a> - clustering and error handling utility</li>
+<li><a href="https://github.com/polyfills/koa">polyfills</a> - user-agent based polyfill bundle serving</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li><a href="https://github.com/venables/koa-helmet">koa-helmet</a> - security headers for koa</li>
+<li><a href="https://github.com/MangroveTech/koa-ip">koa-ip</a> - Ip filter middleware for koa, support whitelist and blacklist</li>
+</ul>
+<h3 id="body-parsing">Body Parsing</h3>
+<ul>
+<li><a href="https://github.com/dlau/koa-body">body</a> - parse http request body</li>
+<li><a href="https://github.com/seznam/hal-body">hal-body</a> - parse hal+json request body</li>
+<li><a href="https://github.com/madbence/koa-parse-json">koa-parse-json</a> - parse JSON request body</li>
+<li><a href="https://github.com/tunnckoCore/koa-better-body">better-body</a> - a http request parser with support for <code>urlencoded</code>, <code>multipart</code> and <code>json</code> bodies!</li>
+<li><a href="https://github.com/thomseddon/koa-body-parser">koa-body-parser</a> - parse request body into context.request.body (using co-body) like the express body parser</li>
+<li><a href="https://github.com/koajs/body-parser">koa-bodyparser</a> - a body parser for koa, base on co-body</li>
+</ul>
+<h3 id="parameter-validation">Parameter Validation</h3>
+<ul>
+<li><a href="https://github.com/RocksonZeta/koa-validate">koa-validate</a> - parameter validate middleware for koa</li>
+<li><a href="https://github.com/MangroveTech/koa-scheme">koa-scheme</a> - parameter validation middleware for koa</li>
+<li><a href="https://github.com/DylanPiercey/koa-prove">koa-prove</a> - parameter validation middleware for koa</li>
+</ul>
+<h3 id="rate-limiting">Rate Limiting</h3>
+<ul>
+<li><a href="https://github.com/koajs/ratelimit">ratelimit</a> - rate limiting middleware</li>
+<li><a href="https://github.com/tunnckoCore/koa-better-ratelimit">better-ratelimit</a> - support black/white lists, Retry-After header, 429 status, in-memory store.</li>
+</ul>
+<h3 id="vhost">Vhost</h3>
+<ul>
+<li><a href="https://github.com/JiangJie/koa-vhost">vhost</a> - vhost middleware</li>
+</ul>
+<h3 id="routing-and-mounting">Routing and Mounting</h3>
+<ul>
+<li><a href="https://github.com/koajs/mount">mount</a> - mount koa applications as middleware</li>
+<li><a href="https://github.com/koajs/route">route</a> - uber simple routing middleware</li>
+<li><a href="https://github.com/ivpusic/koa-routing">routing</a> - routing middleware</li>
+<li><a href="https://github.com/alexmingoia/koa-router">router</a> - RESTful resource router</li>
+<li><a href="https://github.com/MangroveTech/koa-frouter">koa-frouter</a> - File as <code>path</code></li>
+<li><a href="https://github.com/koajs/rewrite">rewrite</a> - url rewriting middleware</li>
+<li><a href="https://github.com/koajs/trie-router">trie-router</a> - Trie-based routing</li>
+<li><a href="https://github.com/segmentio/koa-params">params</a> - Express style params support for koa-route.</li>
+<li><a href="https://github.com/fundon/koa-method-override">koa-methodoverride</a> - HTTP method overriding middleware</li>
+<li><a href="https://github.com/bodokaiser/koa-overwrite">koa-overwrite</a> - Overwrites <code>request.method</code> with forms <code>_method</code>.</li>
+<li><a href="https://github.com/koajs/qs">qs</a> - nested query string support</li>
+<li><a href="https://github.com/blakeembrey/kroute">kroute</a> - Simple, self-contained koa routes and applications</li>
+<li><a href="https://github.com/mojn/koa-dispatch">koa-dispatch</a> - Hybrid Koa router with multiple handlers and param support.</li>
+<li><a href="https://github.com/sbani/koa-barista">koa-barista</a> - routing middleware based on the strong barista router.</li>
+<li><a href="https://github.com/pebble/koa-joi-router">koa-joi-router</a> - Configurable, input and output validated routing for koa</li>
+<li><a href="https://github.com/MangroveTech/koa-version">koa-version</a> - Mounting app by version to different router.</li>
+</ul>
+<h3 id="file-serving">File Serving</h3>
+<ul>
+<li><a href="https://github.com/koajs/send">send</a> - a send file utility</li>
+<li><a href="https://github.com/koajs/sendfile">sendfile</a> - a barebone send file utility</li>
+<li><a href="https://github.com/koajs/static">static</a> - static file serving middleware</li>
+<li><a href="https://github.com/koajs/file-server">file-server</a> - static file serving with additional features like etag and SPDY Push support</li>
+<li><a href="https://github.com/jonathanong/koa-static-cache">static-cache</a> - static file serving from memory</li>
+<li><a href="https://github.com/ktmud/koa-spa">spa</a> - Single page app server build upon static-cache</li>
+<li><a href="https://github.com/koajs/favicon">favicon</a> - bounce favicon requests with a 404</li>
+<li><a href="https://github.com/Pana/koa-favi">koa-favi</a> - connect.favicon like middleware default use node logo</li>
+<li><a href="https://github.com/noazark/koa-broccoli">koa-broccoli</a> - a broccoli server (w/ livereload)</li>
+<li><a href="https://github.com/tjwudi/koa-combo">koa-combo</a> - combine your static files at serverside and reduce number of HTTP requests in a flexible way</li>
+<li><a href="https://github.com/yoshuawuyts/koa-watchify">koa-watchify</a> - Wraps a browserify or watchify instance into a koa middleware</li>
+</ul>
+<h3 id="spdy">SPDY</h3>
+<ul>
+<li><a href="https://github.com/koajs/spdy-push">spdy-push</a> - SPDY Push helper</li>
+<li><a href="https://github.com/koajs/file-server">file-server</a> - static file serving with additional features like etag and SPDY Push support</li>
+</ul>
+<h3 id="json-and-jsonp-responses">JSON and JSONP Responses</h3>
+<ul>
+<li><a href="https://github.com/kilianc/koa-jsonp">jsonp</a> - streamable jsonp support</li>
+<li><a href="https://github.com/koajs/json-filter">json-filter</a> - json response filtering to reduce traffic</li>
+<li><a href="https://github.com/nemtsov/koa-json-mask">json-mask</a> - json response filtering to reduce traffic. Supports filtering at any depth</li>
+<li><a href="https://github.com/koajs/json">json</a> - pretty-printed json responses</li>
+<li><a href="https://github.com/seznam/koa-hal">koa-hal</a> - hal+json response support</li>
+<li><a href="https://github.com/rudijs/koa-jsonapi-headers">koa-jsonapi-headers</a> - Validate JSON-API Request Headers</li>
+</ul>
+<h3 id="compression">Compression</h3>
+<ul>
+<li><a href="https://github.com/koajs/compress">compress</a> - compression middleware</li>
+<li><a href="https://github.com/koajs/compressor">compressor</a> - SPDY/HTTP2 compression middleware (always gzips)</li>
+<li><a href="https://github.com/fengmk2/koa-gzip">koa-gzip</a> - gzip support for koa responses</li>
+<li><a href="https://github.com/coderaiser/koa-minify">koa-minify</a> - minify middleware for js, css, html and img.</li>
+<li><a href="https://github.com/grayleonard/koa-uglify2">koa-uglify2</a> - uglify middleware for js with caching</li>
+</ul>
+<h3 id="caching">Caching</h3>
+<ul>
+<li><a href="https://github.com/fengmk2/koa-fresh">koa-fresh</a> - HTTP response freshness testing middleware base on <a href="https://github.com/visionmedia/node-fresh">node-fresh</a>.</li>
+<li><a href="https://github.com/koajs/etag">etag</a> - etag support for koa responses</li>
+<li><a href="https://github.com/koajs/conditional-get">conditional-get</a> - conditional GET support</li>
+<li><a href="https://github.com/koajs/cash">cash</a> - response caching</li>
+</ul>
+<h3 id="authentication">Authentication</h3>
+<ul>
+<li><a href="https://github.com/koajs/basic-auth">basic-auth</a> - simple user/pass basic auth</li>
+<li><a href="https://github.com/rkusa/koa-passport">koa-passport</a> - Passport middleware for Koa</li>
+<li><a href="https://github.com/stiang/koa-jwt">koa-jwt</a> - JWT (JSON Web Tokens) verification</li>
+<li><a href="https://github.com/chunpu/koa-user">koa-user</a> - simple user module with tokens</li>
+<li><a href="https://github.com/jchannon/koa-statelessauth">koa-statelessauth</a> - custom validation based on <code>Authorization</code> header</li>
+</ul>
+<h3 id="sessions">Sessions</h3>
+<ul>
+<li><a href="https://github.com/koajs/session">session</a> - cookie-based session middleware</li>
+<li><a href="https://github.com/Chilledheart/koa-session-redis">koa-session-redis</a> - drop-in replacement for koa-session</li>
+<li><a href="https://github.com/koajs/csrf">csrf</a> - CSRF tokens</li>
+<li><a href="https://github.com/dead-horse/koa-session">koa-sess</a> - connect-like session middleware</li>
+<li><a href="https://github.com/dead-horse/koa-redis">koa-redis</a> - redis session store base on <code>koa-sess</code></li>
+<li><a href="https://github.com/aheckmann/koa-session-mongodb">koa-session-mongodb</a> - drop in replacement for koa-session based on Object.observe</li>
+<li><a href="https://github.com/aheckmann/koa-mongodb-session">koa-mongodb-session</a> yieldable mongodb session modifications</li>
+<li><a href="https://github.com/purposeindustries/koa-level">koa-level</a> - LevelDB session store for <code>koa-sess</code></li>
+<li><a href="https://github.com/rickharrison/koa-flash">koa-flash</a> - flash messages for koa-session</li>
+</ul>
+<h3 id="templating">Templating</h3>
+<ul>
+<li><a href="https://github.com/fundon/koa-locals">koa-locals</a> - local variables for templates render</li>
+<li><a href="https://github.com/queckezz/koa-views">koa-views</a> - Render your views with almost any templating engine</li>
+<li><a href="https://github.com/dead-horse/koa-ejs">koa-ejs</a> - Focus on <a href="https://github.com/visionmedia/ejs">ejs</a> and support full feature include <code>layout</code>, <code>filters</code>, <code>locals</code>, <code>include</code>.</li>
+<li><a href="https://github.com/nswbmw/co-ejs">co-ejs</a> - koa ejs view render middleware.</li>
+<li><a href="https://github.com/juliangruber/koa-dom">dom</a> - server-side dom templating</li>
+<li><a href="https://github.com/fundon/koa-swig">koa-swig</a> - Focus on <a href="http://paularmstrong.github.io/swig/">swig</a>, support tags, filters, and extensions.</li>
+<li><a href="https://github.com/JiangJie/koa-swig-render">koa-swig-render</a> - Focus on <a href="http://paularmstrong.github.io/swig/">swig</a>, used as a middleware.</li>
+<li><a href="https://github.com/jwilm/koa-hbs/">koa-hbs</a> - Express-style Handlebars view rendering.</li>
+<li><a href="https://github.com/chrisyip/koa-jade">koa-jade</a> - Focus on <a href="http://jade-lang.com">Jade</a></li>
+<li><a href="https://github.com/dominicbarnes/koa-handlebars">koa-handlebars</a> - <a href="http://handlebarsjs.com/">Handlebars</a> view rendering</li>
+<li><a href="https://github.com/Faeson/koajs-nunjucks">koajs-nunjucks</a> - <a href="http://mozilla.github.io/nunjucks/">Nunjucks</a> view rendering</li>
+</ul>
+<h3 id="services">Services</h3>
+<ul>
+<li><a href="https://github.com/chilts/koa-pg">koa-pg</a> - Handle your Pg database connections automatically.</li>
+<li><a href="https://github.com/MangroveTech/koa-mongo">koa-mongo</a> - MongoDB middleware for koa, support connection pool.</li>
+<li><a href="https://github.com/MangroveTech/koa-redis-pool">koa-redis-pool</a> - Redis middleware for koa, support connection pool.</li>
+<li><a href="https://github.com/zorceta/koa-redisy">koa-redisy</a> koa wrapper for co-redis, which is a wrapper for node-redis</li>
+<li><a href="https://github.com/neumino/rethinkdbdash">rethinkdbdash</a> - RethinkDB driver with promises and a connection pool.</li>
+<li><a href="https://github.com/component/koa.js">component-koa</a> - koa middleware for component builds</li>
+<li><a href="https://github.com/seegno/koa-pagination">koa-pagination</a> - Handle <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Range Pagination Headers</a> using <code>Range</code> &amp; <code>Content-Range</code> entity-headers.</li>
+</ul>
+<h3 id="css-preprocessor">CSS Preprocessor</h3>
+<ul>
+<li><a href="https://github.com/yosssi/koa-stylus">koa-stylus</a> - Stylus middleware for Koa</li>
+<li><a href="https://github.com/chosecz/koa-less">koa-less</a> - LESS middleware for Koa</li>
+<li><a href="https://github.com/bodokaiser/koa-lessie">koa-lessie</a> - LESS middleware (lighter implementation)</li>
+<li><a href="https://github.com/yoshuawuyts/koa-myth">koa-myth</a> - Wraps a myth or rework instance into a koa middleware</li>
+</ul>
+<h3 id="livereload">Livereload</h3>
+<ul>
+<li><a href="https://github.com/yosuke-furukawa/koa-livereload">koa-livereload</a> - koa middleware for adding livereload.js</li>
+</ul>
+<h3 id="error-reporting">Error reporting</h3>
+<ul>
+<li><a href="https://github.com/koajs/error">error</a> - text, json, html error responses with swig template support</li>
+<li><a href="https://github.com/nswbmw/koa-errorhandler">errorhandler</a> - Error handler middleware for koa.</li>
+<li><a href="https://github.com/eivindfjeldstad/http-assert">http-assert</a> - assert with status codes</li>
+<li><a href="https://github.com/gusnips/koa-error-ejs">error-ejs</a> text, json, html error responses with ejs template support</li>
+</ul>
+<h3 id="logging">Logging</h3>
+<ul>
+<li><a href="https://github.com/koajs/logger">logger</a> - development style logger</li>
+<li><a href="https://github.com/koajs/mongodb-logger">mongodb-logger</a> - log and profile Koa requests to MongoDB</li>
+<li><a href="https://github.com/Pana/koa-log4js">koa-log4js</a> - log4js logger middleware for koa</li>
+<li><a href="https://github.com/segmentio/koa-request-id">koa-request-id</a> - Add a request id</li>
+<li><a href="https://github.com/ivpusic/koa-bunyan">koa-bunyan</a> - Using node-bunyan as koa logging middleware</li>
+<li><a href="https://github.com/koajs/json-error">json-error</a> - error handler for pure-JSON apps</li>
+<li><a href="https://github.com/rudijs/koa-json-logger">koa-json-logger</a> - HTTP Request/Response/Error JSON format logger</li>
+<li><a href="https://github.com/TomRoSystems/koa-logger2">koa-logger2</a> - Apache like (combined) logging for koajs</li>
+<li><a href="https://github.com/poying/koa-sentry">koa-sentry</a> - Koa middleware for Sentry logging platform</li>
+</ul>
+<h3 id="metrics">Metrics</h3>
+<ul>
+<li><a href="https://github.com/koajs/statsd">statsd</a> - statsd integration</li>
+<li><a href="https://github.com/koajs/response-time">response-time</a> - x-response-time header field middleware</li>
+<li><a href="https://github.com/AlexeyKhristov/koa-ping">koa-ping</a> - ping and health route for app status check</li>
+</ul>
+<h3 id="analytics">Analytics</h3>
+<ul>
+<li><a href="https://github.com/stevenmiller888/koa-analytics">koa-analytics</a> - easily add analytics to your koa app</li>
+</ul>
+<h3 id="i18n-or-l10n">i18n or L10n</h3>
+<ul>
+<li><a href="https://github.com/fundon/koa-locale">koa-locale</a> - Get locale variable from query, subdomain, accept-languages or cookie</li>
+<li><a href="https://github.com/fundon/koa-i18n">koa-i18n</a> - Lightweight simple translation middleware based on  i18n-2</li>
+</ul>
+<h2 id="utilities">Utilities</h2>
+<p>Misc utilities that are useful for Koa applications. Note that <a href="https://github.com/visionmedia/co#yieldables">co</a> lets you <code>yield</code> a variety of types, so existing libraries using promises etc should work fine.</p>
+<ul>
+<li><a href="https://github.com/RocksonZeta/co-punch">co-punch</a> - Punch old libraries!</li>
+<li><a href="https://github.com/RocksonZeta/cofy">cofy</a> - Cofy is a bridge connecting callback style object to sequential style in <a href="https://github.com/visionmedia/co">co</a> or <a href="https://github.com/koajs/koa">koa</a> environment with one punch.</li>
+<li><a href="https://github.com/koajs/compose">compose</a> - compose several middleware into one</li>
+<li><a href="https://github.com/cultofmetatron/Shen">Shen</a> - Shen is underscore for generators</li>
+<li><a href="https://github.com/visionmedia/co/wiki">co libraries</a> - thunk-based libraries that work with Koa</li>
+</ul>
+<h3 id="aggregates">Aggregates</h3>
+<p>Aggregate modules make including common suites of middleware in your application(s) easier. This mimics the convenience of Connect's bundled middleware without forcing them on people.</p>
+<ul>
+<li><a href="https://github.com/koajs/common">common</a> - mount, logger, response-time, static</li>
+<li><a href="https://github.com/Empeeric/opinion">opinion</a> - my opinion on what's needed to get started</li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

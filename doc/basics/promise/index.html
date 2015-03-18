@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/basics/promise/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Promise - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href=".">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Misc/error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../generator">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#promise">Promise</a></li>
+        
+    
+        <li class="main "><a href="#resource">Resource</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="promise">Promise</h2>
+<p>The Promise object is used for deferred and asynchronous computations. A Promise is in one of these states:</p>
+<ul>
+<li>pending: initial state, not fulfilled or rejected.</li>
+<li>fulfilled: successful operation</li>
+<li>rejected: failed operation.</li>
+<li>settled: the Promise is either fulfilled or rejected, but not pending.</li>
+</ul>
+<h2 id="resource">Resource</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise">Mozilla doc</a></li>
+<li><a href="https://www.promisejs.org/">promisejs</a></li>
+<li><a href="https://github.com/then">then (Promises/A+ implementations)</a></li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/API/response/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Response - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../basics/promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../request">Request</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href=".">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Misc/error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../request">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../Middleware/guide">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#response">Response</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="response">Response</h1>
+<p>A Koa <code>Response</code> object is an abstraction on top of node's vanilla response object,
+  providing additional functionality that is useful for every day HTTP server
+  development.</p>
+<h2 id="api">API</h2>
+<h3 id="responseheader">response.header</h3>
+<p>Response header object.</p>
+<h3 id="responsesocket">response.socket</h3>
+<p>Request socket.</p>
+<h3 id="responsestatus">response.status</h3>
+<p>Get response status. By default, <code>response.status</code> is not set unlike node's <code>res.statusCode</code> which defaults to <code>200</code>.</p>
+<h3 id="responsestatus_1">response.status=</h3>
+<p>Set response status via numeric code:</p>
+<ul>
+<li>100 "continue"</li>
+<li>101 "switching protocols"</li>
+<li>102 "processing"</li>
+<li>200 "ok"</li>
+<li>201 "created"</li>
+<li>202 "accepted"</li>
+<li>203 "non-authoritative information"</li>
+<li>204 "no content"</li>
+<li>205 "reset content"</li>
+<li>206 "partial content"</li>
+<li>207 "multi-status"</li>
+<li>300 "multiple choices"</li>
+<li>301 "moved permanently"</li>
+<li>302 "moved temporarily"</li>
+<li>303 "see other"</li>
+<li>304 "not modified"</li>
+<li>305 "use proxy"</li>
+<li>307 "temporary redirect"</li>
+<li>400 "bad request"</li>
+<li>401 "unauthorized"</li>
+<li>402 "payment required"</li>
+<li>403 "forbidden"</li>
+<li>404 "not found"</li>
+<li>405 "method not allowed"</li>
+<li>406 "not acceptable"</li>
+<li>407 "proxy authentication required"</li>
+<li>408 "request time-out"</li>
+<li>409 "conflict"</li>
+<li>410 "gone"</li>
+<li>411 "length required"</li>
+<li>412 "precondition failed"</li>
+<li>413 "request entity too large"</li>
+<li>414 "request-uri too large"</li>
+<li>415 "unsupported media type"</li>
+<li>416 "requested range not satisfiable"</li>
+<li>417 "expectation failed"</li>
+<li>418 "i'm a teapot"</li>
+<li>422 "unprocessable entity"</li>
+<li>423 "locked"</li>
+<li>424 "failed dependency"</li>
+<li>425 "unordered collection"</li>
+<li>426 "upgrade required"</li>
+<li>428 "precondition required"</li>
+<li>429 "too many requests"</li>
+<li>431 "request header fields too large"</li>
+<li>500 "internal server error"</li>
+<li>501 "not implemented"</li>
+<li>502 "bad gateway"</li>
+<li>503 "service unavailable"</li>
+<li>504 "gateway time-out"</li>
+<li>505 "http version not supported"</li>
+<li>506 "variant also negotiates"</li>
+<li>507 "insufficient storage"</li>
+<li>509 "bandwidth limit exceeded"</li>
+<li>510 "not extended"</li>
+<li>511 "network authentication required"</li>
+</ul>
+<p><strong>NOTE</strong>: don't worry too much about memorizing these strings,
+if you have a typo an error will be thrown, displaying this list
+so you can make a correction.</p>
+<h3 id="responsemessage">response.message</h3>
+<p>Get response status message. By default, <code>response.message</code> is
+  associated with <code>response.status</code>.</p>
+<h3 id="responsemessage_1">response.message=</h3>
+<p>Set response status message to the given value.</p>
+<h3 id="responselength">response.length=</h3>
+<p>Set response Content-Length to the given value.</p>
+<h3 id="responselength_1">response.length</h3>
+<p>Return response Content-Length as a number when present, or deduce
+  from <code>this.body</code> when possible, or <code>undefined</code>.</p>
+<h3 id="responsebody">response.body</h3>
+<p>Get response body.</p>
+<h3 id="responsebody_1">response.body=</h3>
+<p>Set response body to one of the following:</p>
+<ul>
+<li><code>string</code> written</li>
+<li><code>Buffer</code> written</li>
+<li><code>Stream</code> piped</li>
+<li><code>Object</code> json-stringified</li>
+<li><code>null</code> no content response</li>
+</ul>
+<p>If <code>response.status</code> has not been set, Koa will automatically set the status to <code>200</code> or <code>204</code>.</p>
+<h4 id="string">String</h4>
+<p>The Content-Type is defaulted to text/html or text/plain, both with
+  a default charset of utf-8. The Content-Length field is also set.</p>
+<h4 id="buffer">Buffer</h4>
+<p>The Content-Type is defaulted to application/octet-stream, and Content-Length
+  is also set.</p>
+<h4 id="stream">Stream</h4>
+<p>The Content-Type is defaulted to application/octet-stream.</p>
+<h4 id="object">Object</h4>
+<p>The Content-Type is defaulted to application/json.</p>
+<h3 id="responsegetfield">response.get(field)</h3>
+<p>Get a response header field value with case-insensitive <code>field</code>.</p>
+<pre><code class="js">var etag = this.get('ETag');
+</code></pre>
+
+<h3 id="responsesetfield-value">response.set(field, value)</h3>
+<p>Set response header <code>field</code> to <code>value</code>:</p>
+<pre><code class="js">this.set('Cache-Control', 'no-cache');
+</code></pre>
+
+<h3 id="responseappendfield-value">response.append(field, value)</h3>
+<p>Append additional header <code>field</code> with value <code>val</code>.</p>
+<pre><code class="js">this.append('Link', '&lt;http://127.0.0.1/&gt;');
+</code></pre>
+
+<h3 id="responsesetfields">response.set(fields)</h3>
+<p>Set several response header <code>fields</code> with an object:</p>
+<pre><code class="js">this.set({
+  'Etag': '1234',
+  'Last-Modified': date
+});
+</code></pre>
+
+<h3 id="responseremovefield">response.remove(field)</h3>
+<p>Remove header <code>field</code>.</p>
+<h3 id="responsetype">response.type</h3>
+<p>Get response <code>Content-Type</code> void of parameters such as "charset".</p>
+<pre><code class="js">var ct = this.type;
+// =&gt; &quot;image/png&quot;
+</code></pre>
+
+<h3 id="responsetype_1">response.type=</h3>
+<p>Set response <code>Content-Type</code> via mime string or file extension.</p>
+<pre><code class="js">this.type = 'text/plain; charset=utf-8';
+this.type = 'image/png';
+this.type = '.png';
+this.type = 'png';
+</code></pre>
+
+<p>Note: when appropriate a <code>charset</code> is selected for you, for
+  example <code>response.type = 'html'</code> will default to "utf-8", however
+  when explicitly defined in full as <code>response.type = 'text/html'</code>
+  no charset is assigned.</p>
+<h3 id="responseistypes">response.is(types...)</h3>
+<p>Very similar to <code>this.request.is()</code>.
+  Check whether the response type is one of the supplied types.
+  This is particularly useful for creating middleware that
+  manipulate responses.</p>
+<p>For example, this is a middleware that minifies
+  all HTML responses except for streams.</p>
+<pre><code class="js">var minify = require('html-minifier');
+
+app.use(function *minifyHTML(next){
+  yield next;
+
+  if (!this.response.is('html')) return;
+
+  var body = this.body;
+  if (!body || body.pipe) return;
+
+  if (Buffer.isBuffer(body)) body = body.toString();
+  this.body = minify(body);
+});
+</code></pre>
+
+<h3 id="responseredirecturl-alt">response.redirect(url, [alt])</h3>
+<p>Perform a [302] redirect to <code>url</code>.</p>
+<p>The string "back" is special-cased
+  to provide Referrer support, when Referrer
+  is not present <code>alt</code> or "/" is used.</p>
+<pre><code class="js">this.redirect('back');
+this.redirect('back', '/index.html');
+this.redirect('/login');
+this.redirect('http://google.com');
+</code></pre>
+
+<p>To alter the default status of <code>302</code>, simply assign the status
+  before or after this call. To alter the body, assign it after this call:</p>
+<pre><code class="js">this.status = 301;
+this.redirect('/cart');
+this.body = 'Redirecting to shopping cart';
+</code></pre>
+
+<h3 id="responseattachmentfilename">response.attachment([filename])</h3>
+<p>Set <code>Content-Disposition</code> to "attachment" to signal the client
+  to prompt for download. Optionally specify the <code>filename</code> of the
+  download.</p>
+<h3 id="responseheadersent">response.headerSent</h3>
+<p>Check if a response header has already been sent. Useful for seeing
+  if the client may be notified on error.</p>
+<h3 id="responselastmodified">response.lastModified</h3>
+<p>Return the <code>Last-Modified</code> header as a <code>Date</code>, if it exists.</p>
+<h3 id="responselastmodified_1">response.lastModified=</h3>
+<p>Set the <code>Last-Modified</code> header as an appropriate UTC string.
+  You can either set it as a <code>Date</code> or date string.</p>
+<pre><code class="js">this.response.lastModified = new Date();
+</code></pre>
+
+<h3 id="responseetag">response.etag=</h3>
+<p>Set the ETag of a response including the wrapped <code>"</code>s.
+  Note that there is no corresponding <code>response.etag</code> getter.</p>
+<pre><code class="js">this.response.etag = crypto.createHash('md5').update(this.body).digest('hex');
+</code></pre>
+
+<h3 id="responsevaryfield">response.vary(field)</h3>
+<p>Vary on <code>field</code>.</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/Misc/faq/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Faq - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../basics/promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href=".">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../koa-vs-express">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../whousekoa">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+        
+            <li><a href="#does-koa-replace-express">Does Koa replace Express?</a></li>
+        
+            <li><a href="#does-koa-replace-connect">Does Koa replace Connect?</a></li>
+        
+            <li><a href="#do-generators-decrease-performance">Do generators decrease performance?</a></li>
+        
+            <li><a href="#does-koa-include-routing">Does Koa include routing?</a></li>
+        
+            <li><a href="#why-isnt-koa-just-express-40">Why isn't Koa just Express 4.0?</a></li>
+        
+            <li><a href="#what-custom-properties-do-the-koa-objects-have">What custom properties do the Koa objects have?</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="frequently-asked-questions">Frequently Asked Questions</h1>
+<h2 id="does-koa-replace-express">Does Koa replace Express?</h2>
+<p>It's more like Connect, but a lot of the Express goodies
+  were moved to the middleware level in Koa to help form
+  a stronger foundation. This makes middleware more enjoyable
+  and less error-prone to write, for the entire stack, not
+  just the end application code.</p>
+<p>Typically many middleware would
+  re-implement similar features, or even worse incorrectly implement them,
+  when features like signed cookie secrets among others are typically application-specific,
+  not middleware specific.</p>
+<h2 id="does-koa-replace-connect">Does Koa replace Connect?</h2>
+<p>No, just a different take on similar functionality
+  now that generators allow us to write code with less
+  callbacks. Connect is equally capable, and some may still prefer it,
+  it's up to what you prefer.</p>
+<h2 id="do-generators-decrease-performance">Do generators decrease performance?</h2>
+<p>Barely - check out the benchmarks in our readme, the numbers
+  are more than fine, and there's no substitute for proper
+  horizontal scaling.</p>
+<h2 id="does-koa-include-routing">Does Koa include routing?</h2>
+<p>No - out of the box Koa has no form of routing, however
+  many routing middleware are available: https://github.com/koajs/koa/wiki</p>
+<h2 id="why-isnt-koa-just-express-40">Why isn't Koa just Express 4.0?</h2>
+<p>Koa is a pretty large departure from what people know about Express,
+  the design is fundamentally much different, so the migration from
+  Express 3.0 to this Express 4.0 would effectively mean rewriting
+  the entire application, so we thought it would be more appropriate
+  to create a new library.</p>
+<h2 id="what-custom-properties-do-the-koa-objects-have">What custom properties do the Koa objects have?</h2>
+<p>Koa uses its own custom objects: <code>this</code>, <code>this.request</code>, and <code>this.response</code>.
+  These objects abstract node's <code>req</code> and <code>res</code> objects with convenience methods and getters/setters.
+  Generally, properties added to these objects must obey the following rules:</p>
+<ul>
+<li>They must be either very commonly used and/or must do something useful</li>
+<li>If a property exists as a setter, then it will also exist as a getter, but not vice versa</li>
+</ul>
+<p>Many of <code>this.request</code> and <code>this.response</code>'s properties are delegated to <code>this</code>.
+If it's a getter/setter, then both the getter and the setter will strictly
+correspond to either <code>this.request</code> or <code>this.response</code>.</p>
+<p>Please think about these rules before suggesting additional properties.</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

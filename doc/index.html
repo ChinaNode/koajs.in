@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Next generation web framework for node/iojs">
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/">
+        <link rel="shortcut icon" href="favicon.ico">
+        
+
+        <title>Koa</title>
+
+        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/prettify-1.0.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href=".">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="basics/promise/">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="basics/generator/">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="basics/co/">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="API/application/">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="API/context/">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="API/request/">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="API/response/">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="Middleware/guide/">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Middleware/hero/">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Middleware/middlewares/">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="Misc/error/">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Misc/example/">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Misc/resource/">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Misc/changelog/">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Misc/koa-vs-express/">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Misc/faq/">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Misc/whousekoa/">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="Misc/utilities/">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="about/">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li class="disabled">
+                    <a rel="next" >
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="basics/promise/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#intro">Intro</a></li>
+        
+    
+        <li class="main "><a href="#hello-world">Hello World</a></li>
+        
+    
+        <li class="main "><a href="#installation">Installation</a></li>
+        
+    
+        <li class="main "><a href="#features">Features</a></li>
+        
+    
+        <li class="main "><a href="#authors">Authors</a></li>
+        
+    
+        <li class="main "><a href="#links">Links</a></li>
+        
+    
+        <li class="main "><a href="#license">License</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h3 id="intro">Intro</h3>
+<p>Koa is a new web framework designed by the team behind Express, which aims to be a smaller, more expressive, and more robust foundation for web applications and APIs. Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling. Koa does not bundle any middleware within core, and provides an elegant suite of methods that make writing servers fast and enjoyable.</p>
+<h3 id="hello-world">Hello World</h3>
+<pre><code class="javascript">var koa = require('koa');
+var app = koa();
+
+app.use(function * () {
+    this.body = 'Hello World';
+});
+
+app.listen(3000);
+</code></pre>
+
+<h3 id="installation">Installation</h3>
+<pre><code>$ npm install koa
+</code></pre>
+
+<p>Koa is supported in all versions of <a href="https://iojs.org">iojs</a> without any flags.</p>
+<p>To use Koa with node, you must be running <strong>node 0.11.16</strong> or higher for generator and promise support, and must run node(1)
+  with the <code>--harmony-generators</code> or <code>--harmony</code> flag.</p>
+<p>You can quickly install a supposed version of node/iojs with your favorite version manager:</p>
+<pre><code class="bash">$ nvm install iojs
+$ npm i koa
+$ node my-koa-app.js
+</code></pre>
+
+<h3 id="features">Features</h3>
+<p>Expressive middleware for node.js using generators via <a href="https://github.com/visionmedia/co">co</a>
+to make web applications and APIs more enjoyable to write. Koa's middleware flow in a stack-like manner allowing you to perform actions downstream, then filter and manipulate the response upstream. Koa's use of generators also greatly increases the readability and robustness of your application.</p>
+<p>Only methods that are common to nearly all HTTP servers are integrated directly into Koa's small ~550 SLOC codebase. This
+includes things like content-negotiation, normalization of node inconsistencies, redirection, and a few others.</p>
+<p>No middleware are bundled with koa.</p>
+<h3 id="authors">Authors</h3>
+<ul>
+<li><a href="https://github.com/tj">TJ Holowaychuk</a></li>
+<li><a href="https://github.com/jonathanong">Jonathan Ong</a></li>
+<li><a href="https://github.com/juliangruber">Julian Gruber</a></li>
+<li><a href="https://github.com/dead-horse">Yiyu He</a></li>
+</ul>
+<h3 id="links">Links</h3>
+<ul>
+<li><a href="https://github.com/koajs/koa">Github</a></li>
+<li><a href="https://github.com/koajs">Github ORG and related projects</a></li>
+<li><a href="http://koajs.com">Koa site</a></li>
+<li><a href="http://koa.rednode.cn/">中文文档</a></li>
+</ul>
+<h3 id="license">License</h3>
+<p>MIT</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/prettify-1.0.min.js"></script>
+        <script src="./js/base.js"></script>
+    </body>
+</html>

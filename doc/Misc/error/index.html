@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/Misc/error/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Error - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../basics/promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="active">
+                            <a href=".">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../../Middleware/middlewares">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../example">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#error-handling">Error handling</a></li>
+        
+    
+        <li class="main "><a href="#thirdpartymiddlewares">ThirdPartyMiddlewares</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="error-handling">Error handling</h2>
+<p>Thanks to <a href="https://github.com/visionmedia/co">co</a>, 
+error handling is much easier in koa. 
+You can finally use try/catch!</p>
+<p>In Express, you caught errors by adding an middleware with a <code>(err, req, res, next)</code> signature as one of the last middleware.
+In contrast, in koa you add a middleware that does <code>try { yield next }</code> as one of the first middleware. It is also recommended that you emit an error on the application itself for centralized error reporting, retaining the default behaviour in Koa.</p>
+<pre><code class="js">app.use(function *(next) {
+  try {
+    yield next;
+  } catch (err) {
+    this.status = err.status || 500;
+    this.body = err.message;
+    this.app.emit('error', err, this);
+  }
+});
+
+app.use(function *(next) {
+  throw new Error('some error');
+})
+</code></pre>
+
+<p>This opens up a bunch of new possibilities:</p>
+<ul>
+<li>As you go down the stack, you can change error handlers very easily.</li>
+<li>You can handle errors in portions of your code much more easily.</li>
+</ul>
+<h2 id="thirdpartymiddlewares">ThirdPartyMiddlewares</h2>
+<ul>
+<li><a href="https://github.com/koajs/error">error</a> - text, json, html error responses with swig template support</li>
+<li><a href="https://github.com/nswbmw/koa-errorhandler">errorhandler</a> - Error handler middleware for koa.</li>
+<li><a href="https://github.com/eivindfjeldstad/http-assert">http-assert</a> - assert with status codes</li>
+<li><a href="https://github.com/gusnips/koa-error-ejs">error-ejs</a> text, json, html error responses with ejs template support</li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

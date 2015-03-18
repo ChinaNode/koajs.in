@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/Misc/changelog/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Changelog - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../basics/promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../API/application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/context">Context</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/request">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../API/response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../resource">Resource</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href=".">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../resource">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../koa-vs-express">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#0181-2015-03-01">0.18.1 / 2015-03-01</a></li>
+        
+    
+        <li class="main "><a href="#0180-2015-02-14">0.18.0 / 2015-02-14</a></li>
+        
+    
+        <li class="main "><a href="#0170-2015-02-05">0.17.0 / 2015-02-05</a></li>
+        
+    
+        <li class="main "><a href="#0160-2015-01-27">0.16.0 / 2015-01-27</a></li>
+        
+    
+        <li class="main "><a href="#0150-2015-01-18">0.15.0 / 2015-01-18</a></li>
+        
+    
+        <li class="main "><a href="#0140-2014-12-15">0.14.0 / 2014-12-15</a></li>
+        
+    
+        <li class="main "><a href="#0130-2014-10-17">0.13.0 / 2014-10-17</a></li>
+        
+    
+        <li class="main "><a href="#0122-2014-09-28">0.12.2 / 2014-09-28</a></li>
+        
+    
+        <li class="main "><a href="#0121-2014-09-21">0.12.1 / 2014-09-21</a></li>
+        
+    
+        <li class="main "><a href="#0120-2014-09-20">0.12.0 / 2014-09-20</a></li>
+        
+    
+        <li class="main "><a href="#0110-2014-09-08">0.11.0 / 2014-09-08</a></li>
+        
+    
+        <li class="main "><a href="#0100-2014-08-12">0.10.0 / 2014-08-12</a></li>
+        
+    
+        <li class="main "><a href="#090-2014-08-07">0.9.0 / 2014-08-07</a></li>
+        
+    
+        <li class="main "><a href="#082-2014-07-27">0.8.2 / 2014-07-27</a></li>
+        
+    
+        <li class="main "><a href="#081-2014-06-24">0.8.1 / 2014-06-24</a></li>
+        
+    
+        <li class="main "><a href="#080-2014-06-13">0.8.0 / 2014-06-13</a></li>
+        
+    
+        <li class="main "><a href="#070-2014-06-07">0.7.0 / 2014-06-07</a></li>
+        
+    
+        <li class="main "><a href="#063-2014-06-06">0.6.3 / 2014-06-06</a></li>
+        
+    
+        <li class="main "><a href="#062-2014-06-03">0.6.2 / 2014-06-03</a></li>
+        
+    
+        <li class="main "><a href="#061-2014-05-11">0.6.1 / 2014-05-11</a></li>
+        
+    
+        <li class="main "><a href="#060-2014-05-01">0.6.0 / 2014-05-01</a></li>
+        
+    
+        <li class="main "><a href="#055-2014-04-14">0.5.5 / 2014-04-14</a></li>
+        
+    
+        <li class="main "><a href="#054-2014-04-12">0.5.4 / 2014-04-12</a></li>
+        
+    
+        <li class="main "><a href="#053-2014-04-09">0.5.3 / 2014-04-09</a></li>
+        
+    
+        <li class="main "><a href="#052-2014-03-23">0.5.2 / 2014-03-23</a></li>
+        
+    
+        <li class="main "><a href="#051-2014-03-06">0.5.1 / 2014-03-06</a></li>
+        
+    
+        <li class="main "><a href="#050-2014-02-19">0.5.0 / 2014-02-19</a></li>
+        
+    
+        <li class="main "><a href="#040-2014-02-11">0.4.0 / 2014-02-11</a></li>
+        
+    
+        <li class="main "><a href="#030-2014-01-17">0.3.0 / 2014-01-17</a></li>
+        
+    
+        <li class="main "><a href="#021-2013-12-30">0.2.1 / 2013-12-30</a></li>
+        
+    
+        <li class="main "><a href="#020-2013-12-28">0.2.0 / 2013-12-28</a></li>
+        
+    
+        <li class="main "><a href="#012-2013-12-21">0.1.2 / 2013-12-21</a></li>
+        
+    
+        <li class="main "><a href="#011-2013-12-19">0.1.1 / 2013-12-19</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="0181-2015-03-01">0.18.1 / 2015-03-01</h1>
+<ul>
+<li>move babel to <code>devDependencies</code></li>
+</ul>
+<h1 id="0180-2015-02-14">0.18.0 / 2015-02-14</h1>
+<ul>
+<li>experimental es7 async function support via <code>app.experimental = true</code></li>
+<li>use <code>content-type</code> instead of <code>media-typer</code></li>
+</ul>
+<h1 id="0170-2015-02-05">0.17.0 / 2015-02-05</h1>
+<p>Breaking change if you're using an old version of node v0.11!
+Otherwise, you should have no trouble upgrading.</p>
+<ul>
+<li>official iojs support</li>
+<li>drop support for node.js <code>&gt;= 0.11.0 &lt; 0.11.16</code></li>
+<li>use <code>Object.setPrototypeOf()</code> instead of <code>__proto__</code></li>
+<li>update dependencies</li>
+</ul>
+<h1 id="0160-2015-01-27">0.16.0 / 2015-01-27</h1>
+<ul>
+<li>add <code>res.append()</code></li>
+<li>fix path usage for node@0.11.15</li>
+</ul>
+<h1 id="0150-2015-01-18">0.15.0 / 2015-01-18</h1>
+<ul>
+<li>add <code>this.href</code></li>
+</ul>
+<h1 id="0140-2014-12-15">0.14.0 / 2014-12-15</h1>
+<ul>
+<li>remove <code>x-powered-by</code> response header</li>
+<li>fix the content type on plain-text redirects</li>
+<li>add ctx.state</li>
+<li>bump <code>co@4</code></li>
+<li>bump dependencies</li>
+</ul>
+<h1 id="0130-2014-10-17">0.13.0 / 2014-10-17</h1>
+<ul>
+<li>add this.message</li>
+<li>custom status support via <code>statuses</code></li>
+</ul>
+<h1 id="0122-2014-09-28">0.12.2 / 2014-09-28</h1>
+<ul>
+<li>use wider semver ranges for dependencies koa maintainers also maintain</li>
+</ul>
+<h1 id="0121-2014-09-21">0.12.1 / 2014-09-21</h1>
+<ul>
+<li>bump content-disposition</li>
+<li>bump statuses</li>
+</ul>
+<h1 id="0120-2014-09-20">0.12.0 / 2014-09-20</h1>
+<ul>
+<li>add this.assert()</li>
+<li>use content-disposition</li>
+</ul>
+<h1 id="0110-2014-09-08">0.11.0 / 2014-09-08</h1>
+<ul>
+<li>fix app.use() assertion #337</li>
+<li>bump a lot of dependencies</li>
+</ul>
+<h1 id="0100-2014-08-12">0.10.0 / 2014-08-12</h1>
+<ul>
+<li>add <code>ctx.throw(err, object)</code> support</li>
+<li>add <code>ctx.throw(err, status, object)</code> support</li>
+</ul>
+<h1 id="090-2014-08-07">0.9.0 / 2014-08-07</h1>
+<ul>
+<li>add: do not set <code>err.expose</code> to true when err.status not a valid http status code</li>
+<li>add: alias <code>request.headers</code> as <code>request.header</code></li>
+<li>add context.inspect(), cleanup app.inspect()</li>
+<li>update cookies</li>
+<li>fix <code>err.status</code> invalid lead to uncaughtException</li>
+<li>fix middleware gif, close #322</li>
+</ul>
+<h1 id="082-2014-07-27">0.8.2 / 2014-07-27</h1>
+<ul>
+<li>bump co</li>
+<li>bump parseurl</li>
+</ul>
+<h1 id="081-2014-06-24">0.8.1 / 2014-06-24</h1>
+<ul>
+<li>bump type-is</li>
+</ul>
+<h1 id="080-2014-06-13">0.8.0 / 2014-06-13</h1>
+<ul>
+<li>add `this.response.is()``</li>
+<li>remove <code>.status=string</code> and <code>res.statusString</code> #298</li>
+</ul>
+<h1 id="070-2014-06-07">0.7.0 / 2014-06-07</h1>
+<ul>
+<li>add <code>this.lastModified</code> and <code>this.etag</code> as both getters and setters for ubiquity #292.
+   See koajs/koa@4065bf7 for an explanation.</li>
+<li>refactor <code>this.response.vary()</code> to use <a href="https://github.com/expressjs/vary">vary</a> #291</li>
+<li>remove <code>this.response.append()</code> #291</li>
+</ul>
+<h1 id="063-2014-06-06">0.6.3 / 2014-06-06</h1>
+<ul>
+<li>fix res.type= when the extension is unknown</li>
+<li>assert when non-error is passed to app.onerror #287</li>
+<li>bump finished</li>
+</ul>
+<h1 id="062-2014-06-03">0.6.2 / 2014-06-03</h1>
+<ul>
+<li>switch from set-type to mime-types</li>
+</ul>
+<h1 id="061-2014-05-11">0.6.1 / 2014-05-11</h1>
+<ul>
+<li>bump type-is</li>
+<li>bump koa-compose</li>
+</ul>
+<h1 id="060-2014-05-01">0.6.0 / 2014-05-01</h1>
+<ul>
+<li>add nicer error formatting</li>
+<li>add: assert object type in ctx.onerror</li>
+<li>change .status default to 404. Closes #263</li>
+<li>remove .outputErrors, suppress output when handled by the dev. Closes #272</li>
+<li>fix content-length when body is re-assigned. Closes #267</li>
+</ul>
+<h1 id="055-2014-04-14">0.5.5 / 2014-04-14</h1>
+<ul>
+<li>fix length when .body is missing</li>
+<li>fix: make sure all intermediate stream bodies will be destroyed</li>
+</ul>
+<h1 id="054-2014-04-12">0.5.4 / 2014-04-12</h1>
+<ul>
+<li>fix header stripping in a few cases</li>
+</ul>
+<h1 id="053-2014-04-09">0.5.3 / 2014-04-09</h1>
+<ul>
+<li>change res.type= to always default charset. Closes #252</li>
+<li>remove ctx.inspect() implementation. Closes #164</li>
+</ul>
+<h1 id="052-2014-03-23">0.5.2 / 2014-03-23</h1>
+<ul>
+<li>fix: inspection of <code>app</code> and <code>app.toJSON()</code></li>
+<li>fix: let <code>this.throw</code>n errors provide their own status</li>
+<li>fix: overwriting of <code>content-type</code> w/ <code>HEAD</code> requests</li>
+<li>refactor: use statuses</li>
+<li>refactor: use escape-html</li>
+<li>bump dev deps</li>
+</ul>
+<h1 id="051-2014-03-06">0.5.1 / 2014-03-06</h1>
+<ul>
+<li>add request.hostname(getter). Closes #224</li>
+<li>remove response.charset and ctx.charset (too confusing in relation to ctx.type) [breaking change]</li>
+<li>fix a debug() name</li>
+</ul>
+<h1 id="050-2014-02-19">0.5.0 / 2014-02-19</h1>
+<ul>
+<li>add context.charset</li>
+<li>add context.charset=</li>
+<li>add request.charset</li>
+<li>add response.charset</li>
+<li>add response.charset=</li>
+<li>fix response.body= html content sniffing</li>
+<li>change ctx.length and ctx.type to always delegate to response object [breaking change]</li>
+</ul>
+<h1 id="040-2014-02-11">0.4.0 / 2014-02-11</h1>
+<ul>
+<li>remove app.jsonSpaces settings - moved to <a href="https://github.com/koajs/json">koa-json</a></li>
+<li>add this.response=false to bypass koa's response handling</li>
+<li>fix response handling after body has been sent</li>
+<li>changed ctx.throw() to no longer .expose 5xx errors</li>
+<li>remove app.keys getter/setter, update cookies, and remove keygrip deps</li>
+<li>update fresh</li>
+<li>update koa-compose</li>
+</ul>
+<h1 id="030-2014-01-17">0.3.0 / 2014-01-17</h1>
+<ul>
+<li>add ctx.host= delegate</li>
+<li>add req.host=</li>
+<li>add: context.throw supports Error instances</li>
+<li>update co</li>
+<li>update cookies</li>
+</ul>
+<h1 id="021-2013-12-30">0.2.1 / 2013-12-30</h1>
+<ul>
+<li>add better 404 handling</li>
+<li>add check for fn._name in debug() output</li>
+<li>add explicit .toJSON() calls to ctx.toJSON()</li>
+</ul>
+<h1 id="020-2013-12-28">0.2.0 / 2013-12-28</h1>
+<ul>
+<li>add support for .throw(status, msg). Closes #130</li>
+<li>add GeneratorFunction assertion for app.use(). Closes #120</li>
+<li>refactor: move <code>.is()</code> to <code>type-is</code></li>
+<li>refactor: move content negotiation to "accepts"</li>
+<li>refactor: allow any streams with .pipe method</li>
+<li>remove <code>next</code> in callback for now</li>
+</ul>
+<h1 id="012-2013-12-21">0.1.2 / 2013-12-21</h1>
+<ul>
+<li>update co, koa-compose, keygrip</li>
+<li>use on-socket-error</li>
+<li>add throw(status, msg) support</li>
+<li>assert middleware is GeneratorFunction</li>
+<li>ducktype stream checks</li>
+<li>remove <code>next</code> is <code>app.callback()</code></li>
+</ul>
+<h1 id="011-2013-12-19">0.1.1 / 2013-12-19</h1>
+<ul>
+<li>fix: cleanup socker error handler on response</li>
+</ul>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

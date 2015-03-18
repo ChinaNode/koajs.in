@@ -1,0 +1,30 @@
+site_name: Koa
+site_url: http://koajs.in
+site_description: Next generation web framework for node/iojs
+site_author: Pana Wang
+site_favicon:
+theme: flatly
+copyright: Copyright &copy; 2015, <a href="http://pana.wang">Pana</a>.
+site_dir: doc
+site_favicon: favicon.ico
+pages:
+- ['index.md', 'Home']
+- ['basics/promise.md', 'Basic', 'Promise']
+- ['basics/generator.md', 'Basic', 'Generator']
+- ['basics/co.md', 'Basic', 'Co']
+- ['API/application.md', 'API', 'Application']
+- ['API/context.md', 'API', 'Context']
+- ['API/request.md', 'API', 'Request']
+- ['API/response.md', 'API', 'Response']
+- ['Middleware/guide.md', 'Middleware', 'Guide']
+- ['Middleware/hero.md', 'Middleware', 'Hero']
+- ['Middleware/middlewares.md', 'Middleware', 'Middleware List']
+- ['Misc/error.md', 'Misc', 'Error']
+- ['Misc/example.md', 'Misc', 'Example']
+- ['Misc/resource.md', 'Misc', 'Resource']
+- ['Misc/changelog.md', 'Misc', 'Changelog']
+- ['Misc/koa-vs-express.md', 'Misc', 'Koa vs Express']
+- ['Misc/faq.md', 'Misc', 'Faq']
+- ['Misc/whousekoa.md', 'Misc', 'WhoUse']
+- ['Misc/utilities.md', 'Misc', 'Utilities']
+- ['about.md', 'About']

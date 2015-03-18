@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Pana Wang">
+        <link rel="canonical" href="http://koajs.in/API/request/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        
+
+        <title>Request - Koa</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/prettify-1.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">Koa</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Basic <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../basics/promise">Promise</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/generator">Generator</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../basics/co">Co</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">API <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../application">Application</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../context">Context</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href=".">Request</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../response">Response</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Middleware <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Middleware/guide">Guide</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/hero">Hero</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Middleware/middlewares">Middleware List</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../Misc/error">Error</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/example">Example</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/resource">Resource</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/changelog">Changelog</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/koa-vs-express">Koa vs Express</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/faq">Faq</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/whousekoa">WhoUse</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../Misc/utilities">Utilities</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../../about">About</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li >
+                    <a rel="next" href="../context">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../response">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#request">Request</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="request">Request</h1>
+<p>A Koa <code>Request</code> object is an abstraction on top of node's vanilla request object,
+  providing additional functionality that is useful for every day HTTP server
+  development.</p>
+<h2 id="api">API</h2>
+<h3 id="requestheader">request.header</h3>
+<p>Request header object.</p>
+<h3 id="requestheaders">request.headers</h3>
+<p>Request header object. Alias as <code>request.header</code>.</p>
+<h3 id="requestmethod">request.method</h3>
+<p>Request method.</p>
+<h3 id="requestmethod_1">request.method=</h3>
+<p>Set request method, useful for implementing middleware
+  such as <code>methodOverride()</code>.</p>
+<h3 id="requestlength">request.length</h3>
+<p>Return request Content-Length as a number when present, or <code>undefined</code>.</p>
+<h3 id="requesturl">request.url</h3>
+<p>Get request URL.</p>
+<h3 id="requesturl_1">request.url=</h3>
+<p>Set request URL, useful for url rewrites.</p>
+<h3 id="requestoriginalurl">request.originalUrl</h3>
+<p>Get request original URL.</p>
+<h3 id="requesthref">request.href</h3>
+<p>Get full request URL, include <code>protocol</code>, <code>host</code> and <code>url</code>.</p>
+<pre><code class="js">this.request.href
+// =&gt; http://example.com/foo/bar?q=1
+</code></pre>
+
+<h3 id="requestpath">request.path</h3>
+<p>Get request pathname.</p>
+<h3 id="requestpath_1">request.path=</h3>
+<p>Set request pathname and retain query-string when present.</p>
+<h3 id="requestquerystring">request.querystring</h3>
+<p>Get raw query string void of <code>?</code>.</p>
+<h3 id="requestquerystring_1">request.querystring=</h3>
+<p>Set raw query string.</p>
+<h3 id="requestsearch">request.search</h3>
+<p>Get raw query string with the <code>?</code>.</p>
+<h3 id="requestsearch_1">request.search=</h3>
+<p>Set raw query string.</p>
+<h3 id="requesthost">request.host</h3>
+<p>Get host (hostname:port) when present. Supports <code>X-Forwarded-Host</code>
+  when <code>app.proxy</code> is <strong>true</strong>, otherwise <code>Host</code> is used.</p>
+<h3 id="requesthostname">request.hostname</h3>
+<p>Get hostname when present. Supports <code>X-Forwarded-Host</code>
+  when <code>app.proxy</code> is <strong>true</strong>, otherwise <code>Host</code> is used.</p>
+<h3 id="requesttype">request.type</h3>
+<p>Get request <code>Content-Type</code> void of parameters such as "charset".</p>
+<pre><code class="js">var ct = this.request.type;
+// =&gt; &quot;image/png&quot;
+</code></pre>
+
+<h3 id="requestcharset">request.charset</h3>
+<p>Get request charset when present, or <code>undefined</code>:</p>
+<pre><code class="js">this.request.charset
+// =&gt; &quot;utf-8&quot;
+</code></pre>
+
+<h3 id="requestquery">request.query</h3>
+<p>Get parsed query-string, returning an empty object when no
+  query-string is present. Note that this getter does <em>not</em>
+  support nested parsing.</p>
+<p>For example "color=blue&amp;size=small":</p>
+<pre><code class="js">{
+  color: 'blue',
+  size: 'small'
+}
+</code></pre>
+
+<h3 id="requestquery_1">request.query=</h3>
+<p>Set query-string to the given object. Note that this
+  setter does <em>not</em> support nested objects.</p>
+<pre><code class="js">this.query = { next: '/login' };
+</code></pre>
+
+<h3 id="requestfresh">request.fresh</h3>
+<p>Check if a request cache is "fresh", aka the contents have not changed. This
+  method is for cache negotiation between <code>If-None-Match</code> / <code>ETag</code>, and <code>If-Modified-Since</code> and <code>Last-Modified</code>. It should be referenced after setting one or more of these response headers.</p>
+<pre><code class="js">this.set('ETag', '123');
+
+// cache is ok
+if (this.fresh) {
+  this.status = 304;
+  return;
+}
+
+// cache is stale
+// fetch new data
+this.body = yield db.find('something');
+</code></pre>
+
+<h3 id="requeststale">request.stale</h3>
+<p>Inverse of <code>request.fresh</code>.</p>
+<h3 id="requestprotocol">request.protocol</h3>
+<p>Return request protocol, "https" or "http". Supports <code>X-Forwarded-Proto</code>
+  when <code>app.proxy</code> is <strong>true</strong>.</p>
+<h3 id="requestsecure">request.secure</h3>
+<p>Shorthand for <code>this.protocol == "https"</code> to check if a request was
+  issued via TLS.</p>
+<h3 id="requestip">request.ip</h3>
+<p>Request remote address. Supports <code>X-Forwarded-For</code> when <code>app.proxy</code>
+  is <strong>true</strong>.</p>
+<h3 id="requestips">request.ips</h3>
+<p>When <code>X-Forwarded-For</code> is present and <code>app.proxy</code> is enabled an array
+  of these ips is returned, ordered from upstream -&gt; downstream. When disabled
+  an empty array is returned.</p>
+<h3 id="requestsubdomains">request.subdomains</h3>
+<p>Return subdomains as an array.</p>
+<p>Subdomains are the dot-separated parts of the host before the main domain of
+  the app. By default, the domain of the app is assumed to be the last two
+  parts of the host. This can be changed by setting <code>app.subdomainOffset</code>.</p>
+<p>For example, if the domain is "tobi.ferrets.example.com":
+  If <code>app.subdomainOffset</code> is not set, this.subdomains is <code>["ferrets", "tobi"]</code>.
+  If <code>app.subdomainOffset</code> is 3, this.subdomains is <code>["tobi"]</code>.</p>
+<h3 id="requestistypes">request.is(types...)</h3>
+<p>Check if the incoming request contains the "Content-Type"
+  header field, and it contains any of the give mime <code>type</code>s.
+  If there is no request body, <code>undefined</code> is returned.
+  If there is no content type, or the match fails <code>false</code> is returned.
+  Otherwise, it returns the matching content-type.</p>
+<pre><code class="js">// With Content-Type: text/html; charset=utf-8
+this.is('html'); // =&gt; 'html'
+this.is('text/html'); // =&gt; 'text/html'
+this.is('text/*', 'text/html'); // =&gt; 'text/html'
+
+// When Content-Type is application/json
+this.is('json', 'urlencoded'); // =&gt; 'json'
+this.is('application/json'); // =&gt; 'application/json'
+this.is('html', 'application/*'); // =&gt; 'application/json'
+
+this.is('html'); // =&gt; false
+</code></pre>
+
+<p>For example if you want to ensure that
+  only images are sent to a given route:</p>
+<pre><code class="js">if (this.is('image/*')) {
+  // process
+} else {
+  this.throw(415, 'images only!');
+}
+</code></pre>
+
+<h3 id="content-negotiation">Content Negotiation</h3>
+<p>Koa's <code>request</code> object includes helpful content negotiation utilities powered by <a href="http://github.com/expressjs/accepts">accepts</a> and <a href="https://github.com/federomero/negotiator">negotiator</a>. These utilities are:</p>
+<ul>
+<li><code>request.accepts(types)</code></li>
+<li><code>request.acceptsEncodings(types)</code></li>
+<li><code>request.acceptsCharsets(charsets)</code></li>
+<li><code>request.acceptsLanguages(langs)</code></li>
+</ul>
+<p>If no types are supplied, <strong>all</strong> acceptable types are returned.</p>
+<p>If multiple types are supplied, the best match will be returned. If no matches are found, a <code>false</code> is returned, and you should send a <code>406 "Not Acceptable"</code> response to the client.</p>
+<p>In the case of missing accept headers where any type is acceptable, the first type will be returned. Thus, the order of types you supply is important.</p>
+<h3 id="requestacceptstypes">request.accepts(types)</h3>
+<p>Check if the given <code>type(s)</code> is acceptable, returning the best match when true, otherwise <code>false</code>. The <code>type</code> value may be one or more mime type string
+  such as "application/json", the extension name
+  such as "json", or an array <code>["json", "html", "text/plain"]</code>.</p>
+<pre><code class="js">// Accept: text/html
+this.accepts('html');
+// =&gt; &quot;html&quot;
+
+// Accept: text/*, application/json
+this.accepts('html');
+// =&gt; &quot;html&quot;
+this.accepts('text/html');
+// =&gt; &quot;text/html&quot;
+this.accepts('json', 'text');
+// =&gt; &quot;json&quot;
+this.accepts('application/json');
+// =&gt; &quot;application/json&quot;
+
+// Accept: text/*, application/json
+this.accepts('image/png');
+this.accepts('png');
+// =&gt; false
+
+// Accept: text/*;q=.5, application/json
+this.accepts(['html', 'json']);
+this.accepts('html', 'json');
+// =&gt; &quot;json&quot;
+
+// No Accept header
+this.accepts('html', 'json');
+// =&gt; &quot;html&quot;
+this.accepts('json', 'html');
+// =&gt; &quot;json&quot;
+</code></pre>
+
+<p>You may call <code>this.accepts()</code> as many times as you like,
+  or use a switch:</p>
+<pre><code class="js">switch (this.accepts('json', 'html', 'text')) {
+  case 'json': break;
+  case 'html': break;
+  case 'text': break;
+  default: this.throw(406, 'json, html, or text only');
+}
+</code></pre>
+
+<h3 id="requestacceptsencodingsencodings">request.acceptsEncodings(encodings)</h3>
+<p>Check if <code>encodings</code> are acceptable, returning the best match when true, otherwise <code>false</code>. Note that you should include <code>identity</code> as one of the encodings!</p>
+<pre><code class="js">// Accept-Encoding: gzip
+this.acceptsEncodings('gzip', 'deflate', 'identity');
+// =&gt; &quot;gzip&quot;
+
+this.acceptsEncodings(['gzip', 'deflate', 'identity']);
+// =&gt; &quot;gzip&quot;
+</code></pre>
+
+<p>When no arguments are given all accepted encodings
+  are returned as an array:</p>
+<pre><code class="js">// Accept-Encoding: gzip, deflate
+this.acceptsEncodings();
+// =&gt; [&quot;gzip&quot;, &quot;deflate&quot;, &quot;identity&quot;]
+</code></pre>
+
+<p>Note that the <code>identity</code> encoding (which means no encoding) could be unacceptable if the client explicitly sends <code>identity;q=0</code>. Although this is an edge case, you should still handle the case where this method returns <code>false</code>.</p>
+<h3 id="requestacceptscharsetscharsets">request.acceptsCharsets(charsets)</h3>
+<p>Check if <code>charsets</code> are acceptable, returning
+  the best match when true, otherwise <code>false</code>.</p>
+<pre><code class="js">// Accept-Charset: utf-8, iso-8859-1;q=0.2, utf-7;q=0.5
+this.acceptsCharsets('utf-8', 'utf-7');
+// =&gt; &quot;utf-8&quot;
+
+this.acceptsCharsets(['utf-7', 'utf-8']);
+// =&gt; &quot;utf-8&quot;
+</code></pre>
+
+<p>When no arguments are given all accepted charsets
+  are returned as an array:</p>
+<pre><code class="js">// Accept-Charset: utf-8, iso-8859-1;q=0.2, utf-7;q=0.5
+this.acceptsCharsets();
+// =&gt; [&quot;utf-8&quot;, &quot;utf-7&quot;, &quot;iso-8859-1&quot;]
+</code></pre>
+
+<h3 id="requestacceptslanguageslangs">request.acceptsLanguages(langs)</h3>
+<p>Check if <code>langs</code> are acceptable, returning
+  the best match when true, otherwise <code>false</code>.</p>
+<pre><code class="js">// Accept-Language: en;q=0.8, es, pt
+this.acceptsLanguages('es', 'en');
+// =&gt; &quot;es&quot;
+
+this.acceptsLanguages(['en', 'es']);
+// =&gt; &quot;es&quot;
+</code></pre>
+
+<p>When no arguments are given all accepted languages
+  are returned as an array:</p>
+<pre><code class="js">// Accept-Language: en;q=0.8, es, pt
+this.acceptsLanguages();
+// =&gt; [&quot;es&quot;, &quot;pt&quot;, &quot;en&quot;]
+</code></pre>
+
+<h3 id="requestidempotent">request.idempotent</h3>
+<p>Check if the request is idempotent.</p>
+<h3 id="requestsocket">request.socket</h3>
+<p>Return the request socket.</p>
+<h3 id="requestgetfield">request.get(field)</h3>
+<p>Return request header.</p>
+</div>
+        </div>
+
+        
+
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>
