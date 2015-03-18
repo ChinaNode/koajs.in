@@ -243,7 +243,11 @@ $ node my-koa-app.js
 to make web applications and APIs more enjoyable to write. Koa's middleware flow in a stack-like manner allowing you to perform actions downstream, then filter and manipulate the response upstream. Koa's use of generators also greatly increases the readability and robustness of your application.</p>
 <p>Only methods that are common to nearly all HTTP servers are integrated directly into Koa's small ~550 SLOC codebase. This
 includes things like content-negotiation, normalization of node inconsistencies, redirection, and a few others.</p>
-<p>No middleware are bundled with koa.</p>
+<ul>
+<li>Through leveraging generators Koa allows you to ditch callbacks and greatly increase error-handling</li>
+<li>No middleware are bundled with koa, small, flexible</li>
+<li>Stack-like middleware architecture, which is more expressive</li>
+</ul>
 <h3 id="authors">Authors</h3>
 <ul>
 <li><a href="https://github.com/tj">TJ Holowaychuk</a></li>
