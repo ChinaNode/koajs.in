@@ -27,7 +27,6 @@ $ mkdocs build
 
 ## TODO
 
-* Add links
 * Use a auto way to update koa docs
 * Code highlight OP
-* background color rotate
+* A post about koa this
